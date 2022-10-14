@@ -5,14 +5,14 @@ def isEmpty():
 
 # Retutn True if the queue is full
 def isFull():
-    return (((end+1)%queue_size==front) and (end!=-1))
+    return (((end+1)%queue_size==front) and (end!=-1))     #next slot of end is front but end is not at -1 
 
 
 # Function to add an item to end of the queue
 def add(item):
     global queue, front, end  #required in Python if we're modifying a global variable    
     if not isFull():
-        end=(end+1)%queue_size
+        end=(end+1)%queue_size       #makes linear queue become circular queue
         queue[end]=item
         print('Added',item,'OK!')
     else:
@@ -24,15 +24,15 @@ def add(item):
 def remove():
     global queue, front, end
     if not isEmpty():
-        front+=1
+        front=(front+1)%queue_size
     else:
         print('Error: Nothing to remove. Queue is aready empty.')
 
-    return queue[front-1]   
+    return queue[(front+queue_size-1)%queue_size]   #return the slot before front without exceed the index
     
 # Function to return the number of items in the queue
 def size():
-    return (end+queue_size-front)%queue_size+1
+    return (end+queue_size-front)%queue_size+1     #prevent end is smaller than front
 
 
 # Function to return the front item without removing it from the queue
@@ -48,7 +48,7 @@ def printQueue():
         print('Queue is empty')
     else:        
         for i in range(front, front+size()):
-            print(f'{queue[i%queue_size]} ', end=' ')    
+            print(f'{queue[i%queue_size]} ', end=' ')  #not exceed the index 
     print()
 
 
