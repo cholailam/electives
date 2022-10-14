@@ -5,7 +5,7 @@ def isEmpty():
 
 # Retutn True if the queue is full
 def isFull():
-    return (((end+1)%queue_size==front) and (end!=-1))     #next slot of end is front but end is not at -1 
+    return (size()==queue_size)and(end!=-1)    #size equals to queue size but at the same time end should not at -1 
 
 
 # Function to add an item to end of the queue
