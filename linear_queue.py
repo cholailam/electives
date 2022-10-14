@@ -1,6 +1,5 @@
 # Return True if the queue is empty
 def isEmpty():    
-    global front
     return (end==0)
  
 
