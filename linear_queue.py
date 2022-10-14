@@ -5,7 +5,6 @@ def isEmpty():
 
 # Retutn True if the queue is full
 def isFull():
-    global queue_size
     return (end-front+1==queue_size)
 
 
