@@ -1,11 +1,11 @@
 # Return True if the queue is empty
 def isEmpty():    
-    return (end==0)
+    return (end==front)      #it is empty when front and end are in same slot
  
 
 # Retutn True if the queue is full
 def isFull():
-    return (end-front+1==queue_size)
+    return (size()==queue_size)
 
 
 # Function to add an item to end of the queue
@@ -28,7 +28,7 @@ def remove():
     else:
         print('Error: Nothing to remove. Queue is aready empty.')
 
-    return queue[front-1]   
+    return queue[front-1]  #return the value before front because front has moved to next slot 
     
 # Function to return the number of items in the queue
 def size():
